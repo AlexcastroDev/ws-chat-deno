@@ -18,10 +18,12 @@ serve((req: Request) => {
     }
 
     if(wsPayload?.mentions && Array.isArray(wsPayload.mentions)) {
+      
+
       wsPayload.mentions.forEach(mention => {
-        if (clients.has(mention)) {
+        // if (clients.has(mention)) { // Testing only
           clients.get(mention)?.send(JSON.stringify({ type: "message", data: wsPayload.data }));
-        }
+        // }
       })
     }
   };
