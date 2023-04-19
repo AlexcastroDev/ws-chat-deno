@@ -8,8 +8,8 @@ serve((req: Request) => {
   }
   const { socket: ws, response } = Deno.upgradeWebSocket(req);
   ws.onopen = () => console.log("socket opened");
-  ws.onmessage = (e) => {
-    const wsPayload: { type: string, data: string, mentions?: string[] } = JSON.parse(message);
+  ws.onmessage = (message) => {
+    const wsPayload: { type: string, data: string, mentions?: string[] } = JSON.parse(message.data);
     
     if (wsPayload.type === "join") {
       clients.set(wsPayload.data, ws);
