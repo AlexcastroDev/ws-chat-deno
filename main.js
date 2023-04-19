@@ -1,4 +1,4 @@
-const websocket = new WebSocket("ws://chat-ws.deno.dev")
+const websocket = new WebSocket("ws://chat-ws.deno.dev:8080")
 
 function createWebSocket() {
     websocket.onmessage = (message) => {
