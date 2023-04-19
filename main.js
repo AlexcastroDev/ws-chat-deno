@@ -60,7 +60,7 @@ function joinServer(name) {
     websocket.send(JSON.stringify({ type: 'join', data: name }))
 }
 window.onload = () => {
-    const name = window.prompt("What is your name?");
+    const name = Math.random().toString(36).substring(7);
     console.log("🚀 ~ file: main.js:61 ~ name:", name)
     if(!name) {
         window.location.reload();
